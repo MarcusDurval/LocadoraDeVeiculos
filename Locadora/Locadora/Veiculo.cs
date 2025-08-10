@@ -84,6 +84,19 @@ namespace Locadora
 
                     sql.Append("Where (Cod_Veiculo = @cod)");
 
+                    comandoSql.Parameters.AddWithValue("@Marca",Marca);
+                    comandoSql.Parameters.AddWithValue("@Cor",Cor);
+                    comandoSql.Parameters.AddWithValue("@Ano",Ano);
+                    comandoSql.Parameters.AddWithValue("@Fabricacao",Fabricacao);
+                    comandoSql.Parameters.AddWithValue("@Modelo",Modelo);
+                    comandoSql.Parameters.AddWithValue("@Transmissao",Transmissao);
+                    comandoSql.Parameters.AddWithValue("@Combustivel",Combustivel);
+                    comandoSql.Parameters.AddWithValue("@Carroceria", Carroceria);
+                    comandoSql.Parameters.AddWithValue("@Placa",Placa);
+                    comandoSql.Parameters.AddWithValue("@Chassi",Chassi);
+                    comandoSql.Parameters.AddWithValue("@Nome",Nome);
+                    comandoSql.Parameters.AddWithValue("@cod",cod);
+
                     comandoSql.CommandText = comandoSql.ToString();
                     comandoSql.Connection = conectar;
                     comandoSql.ExecuteNonQuery();
@@ -106,6 +119,8 @@ namespace Locadora
                     conectar.Open();
                     sql.Append("Delete From Veiculo");
                     sql.Append(" Where (Cod_Veiculo = @idveiculo)");
+
+                    comandoSql.Parameters.AddWithValue("@idveiculo", idveiculo);
 
                     comandoSql.CommandText = sql.ToString();
                     comandoSql.Connection = conectar;
