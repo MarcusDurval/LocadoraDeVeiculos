@@ -41,9 +41,9 @@ namespace Locadora
                     comandoSql.ExecuteNonQuery();
                 }
             }
-             catch(Exception )
+             catch(Exception ex)
              {
-                throw new Exception("Ocorreu um erro no método Cadastrar. Caso o problema persista, entre em contato com o Administrador do Sistema.");
+                MessageBox.Show("Ocorreu um erro no método Cadastrar. Caso o problema persista, entre em contato com o Administrador do Sistema.",ex.Message);
              }
         }
 
@@ -55,7 +55,7 @@ namespace Locadora
                 {
                     connection.Open();
 
-                    sql.Append(" Select * From Veiculo");
+                    sql.Append("Select * From Veiculo");
 
                     comandoSql.CommandText = sql.ToString();
                     comandoSql.Connection = connection;
@@ -67,6 +67,55 @@ namespace Locadora
             catch (Exception)
             {
                 throw new Exception("Ocorreu um erro no método Listar. Caso o problema persista, entre em contato com o Administrador do Sistema.");
+            }
+        }
+
+        public void Alterar(int cod, string Marca, string Cor, string Ano, string Fabricacao, string Modelo, string Transmissao, string Combustivel, string Carroceria, string Placa, string Chassi, string Nome)
+        {
+            try
+            {
+
+                using (SqlConnection conectar = new SqlConnection(Conexao.Con))
+                {
+                    conectar.Open();
+
+                    sql.Append("Update Veiculo");
+                    sql.Append(" Set Marca=@Marca,Cor=@Cor,Ano=@Ano,Fabricação=@Fabricacao,Modelo=@Modelo,Transmissao=@Transmissao,Combustivel=@Combustivel,Carroceria=@Carroceria,Placa=@Placa,Chassi=@Chassi,Nome=@Nome");
+
+                    sql.Append("Where (Cod_Veiculo = @cod)");
+
+                    comandoSql.CommandText = comandoSql.ToString();
+                    comandoSql.Connection = conectar;
+                    comandoSql.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Ocorreu um erro no método Listar. Caso o problema persista, entre em contato com o Administrador do Sistema.", ex.Message);
+            }
+           
+        }
+
+        public void Excluir(int idveiculo)
+        {
+            try
+            {
+                using (SqlConnection conectar = new SqlConnection(Conexao.Con))
+                {
+                    conectar.Open();
+                    sql.Append("Delete From Veiculo");
+                    sql.Append(" Where (Cod_Veiculo = @idveiculo)");
+
+                    comandoSql.CommandText = sql.ToString();
+                    comandoSql.Connection = conectar;
+                    comandoSql.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Ocorreu um erro no método Listar. Caso o problema persista, entre em contato com o Administrador do Sistema.",ex.Message);
             }
         }
     }

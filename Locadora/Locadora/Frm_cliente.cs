@@ -41,7 +41,7 @@ namespace Locadora
         {
             var cliente = new Cliente();
             dtg_cliente.DataSource = null;
-            dtg_cliente.DataSource = cliente.Lista();
+            dtg_cliente.DataSource = cliente.Listar();
         }
 
         private void label6_Click(object sender, EventArgs e)

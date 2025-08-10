@@ -53,7 +53,7 @@ namespace Locadora
             
            
         }
-        public DataTable Lista()
+        public DataTable Listar()
         {
             try
             {
@@ -70,7 +70,7 @@ namespace Locadora
                     return dadosTabela;
                 }
             }
-            catch (Exception )
+            catch (Exception)
             {
 
                 throw new Exception("Ocorreu um erro no método Listar. Caso o problema persista, entre em contato com o Administrador do Sistema.");
