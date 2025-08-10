@@ -61,6 +61,8 @@
             lbl_genero = new Label();
             tb_genero = new TextBox();
             dtg_cliente = new DataGridView();
+            btn_editar = new DataGridViewImageColumn();
+            btn_excluir = new DataGridViewImageColumn();
             mkd_logradouro = new MaskedTextBox();
             label1 = new Label();
             tb_estado = new TextBox();
@@ -68,8 +70,6 @@
             mkd_cidade = new MaskedTextBox();
             label3 = new Label();
             tb_bairro = new TextBox();
-            btn_editar = new DataGridViewImageColumn();
-            btn_excluir = new DataGridViewImageColumn();
             toolStrip1.SuspendLayout();
             gb_documentos.SuspendLayout();
             gb_contato.SuspendLayout();
@@ -214,7 +214,7 @@
             // 
             // msk_cep
             // 
-            msk_cep.Location = new Point(65, 80);
+            msk_cep.Location = new Point(65, 84);
             msk_cep.Mask = "99999-999";
             msk_cep.Name = "msk_cep";
             msk_cep.Size = new Size(128, 23);
@@ -224,7 +224,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(6, 80);
+            label4.Location = new Point(6, 84);
             label4.Name = "label4";
             label4.Size = new Size(49, 20);
             label4.TabIndex = 1;
@@ -385,6 +385,22 @@
             dtg_cliente.TabIndex = 13;
             dtg_cliente.CellContentClick += dtg_cliente_CellContentClick;
             // 
+            // btn_editar
+            // 
+            btn_editar.HeaderText = "";
+            btn_editar.Image = Properties.Resources.editar;
+            btn_editar.Name = "btn_editar";
+            btn_editar.ReadOnly = true;
+            btn_editar.Width = 30;
+            // 
+            // btn_excluir
+            // 
+            btn_excluir.HeaderText = "";
+            btn_excluir.Image = Properties.Resources.excluir;
+            btn_excluir.Name = "btn_excluir";
+            btn_excluir.ReadOnly = true;
+            btn_excluir.Width = 30;
+            // 
             // mkd_logradouro
             // 
             mkd_logradouro.Location = new Point(198, 256);
@@ -442,22 +458,6 @@
             tb_bairro.Name = "tb_bairro";
             tb_bairro.Size = new Size(108, 23);
             tb_bairro.TabIndex = 8;
-            // 
-            // btn_editar
-            // 
-            btn_editar.HeaderText = "";
-            btn_editar.Image = Properties.Resources.editar;
-            btn_editar.Name = "btn_editar";
-            btn_editar.ReadOnly = true;
-            btn_editar.Width = 30;
-            // 
-            // btn_excluir
-            // 
-            btn_excluir.HeaderText = "";
-            btn_excluir.Image = Properties.Resources.excluir;
-            btn_excluir.Name = "btn_excluir";
-            btn_excluir.ReadOnly = true;
-            btn_excluir.Width = 30;
             // 
             // Frm_cliente
             // 
