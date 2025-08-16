@@ -4,6 +4,7 @@ namespace Locadora
 {
     public partial class Frm_locadora : Form
     {
+        Logins NovoLogin = new Logins();
         public Frm_locadora()
         {
             InitializeComponent();
@@ -26,27 +27,19 @@ namespace Locadora
 
         private void btn_login_Click(object sender, EventArgs e)
         {
-            Controle controle = new Controle();
-            controle.acessar(tb_email.Text, tb_password.Text);
-            if (controle.mensagem.Equals(""))
+            NovoLogin = new Logins();
+            NovoLogin.VerificarLogin(tb_email.Text, tb_password.Text);
+
+            if (NovoLogin.Verificar == true)
             {
-
-                if (controle.tem)
-                {
-                    SessaoUsuario.Nome = controle.NomeUsuario;
-
-                    MessageBox.Show("Logado com sucesso", "Entrando", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Frm_principal bemvindo = new Frm_principal();
-                    bemvindo.Show();
-                }
-                else
-                {
-                    MessageBox.Show("login não encontrado, verfique login e senha", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                SessaoUsuario.Nome = NovoLogin.NomeUsuario;
+                Frm_principal frm_Principal = new Frm_principal();
+                frm_Principal.Show();
+                MessageBox.Show("Logado com sucesso", "Logado", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show(controle.mensagem);
+                   MessageBox.Show("login não encontrado, verfique login e senha", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

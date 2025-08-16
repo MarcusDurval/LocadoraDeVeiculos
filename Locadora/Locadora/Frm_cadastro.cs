@@ -13,6 +13,7 @@ namespace Locadora
 {
     public partial class Frm_cadastro : Form
     {
+        Logins NovoLogin = new Logins();    
         public Frm_cadastro()
         {
             InitializeComponent();
@@ -40,16 +41,17 @@ namespace Locadora
 
         private void btn_entrar_Click(object sender, EventArgs e)
         {
-            Controle controle = new Controle();
-            string mensagem =  controle.Cadastrar(tb_email.Text, tb_senha.Text, tb_confsenha.Text);
-            if (controle.tem)
+            NovoLogin = new Logins();
+            NovoLogin.Cadastrar(tb_email.Text, tb_senha.Text, tb_confsenha.Text);
+            if(NovoLogin.Verificar == true)
             {
-                MessageBox.Show(mensagem, "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Cadastro Finalizado com Sucesso!", "SUCESSO!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show(controle.mensagem);
+                MessageBox.Show("Algo deu erro, Verifique Seu Email ou Senha", "ERRO", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
             }
+           
 
         }
     }

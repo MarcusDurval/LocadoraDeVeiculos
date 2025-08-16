@@ -36,7 +36,6 @@
             toolStrip2 = new ToolStrip();
             btn_entrar = new ToolStripButton();
             toolStripSeparator3 = new ToolStripSeparator();
-            btn_sair = new ToolStripButton();
             pb_imagem = new PictureBox();
             gp_cadastra.SuspendLayout();
             toolStrip2.SuspendLayout();
@@ -101,7 +100,7 @@
             // 
             toolStrip2.AutoSize = false;
             toolStrip2.Dock = DockStyle.None;
-            toolStrip2.Items.AddRange(new ToolStripItem[] { btn_entrar, toolStripSeparator3, btn_sair });
+            toolStrip2.Items.AddRange(new ToolStripItem[] { btn_entrar, toolStripSeparator3 });
             toolStrip2.Location = new Point(0, 427);
             toolStrip2.Name = "toolStrip2";
             toolStrip2.Size = new Size(800, 46);
@@ -110,32 +109,22 @@
             // 
             // btn_entrar
             // 
+            btn_entrar.Alignment = ToolStripItemAlignment.Right;
             btn_entrar.AutoSize = false;
             btn_entrar.Image = Properties.Resources.entrar1;
             btn_entrar.ImageScaling = ToolStripItemImageScaling.None;
             btn_entrar.ImageTransparentColor = Color.Magenta;
             btn_entrar.Name = "btn_entrar";
             btn_entrar.Size = new Size(98, 55);
-            btn_entrar.Text = "Entrar";
+            btn_entrar.Text = "Cadastrar:";
             btn_entrar.TextImageRelation = TextImageRelation.ImageAboveText;
             btn_entrar.Click += btn_entrar_Click;
             // 
             // toolStripSeparator3
             // 
+            toolStripSeparator3.Alignment = ToolStripItemAlignment.Right;
             toolStripSeparator3.Name = "toolStripSeparator3";
             toolStripSeparator3.Size = new Size(6, 46);
-            // 
-            // btn_sair
-            // 
-            btn_sair.AutoSize = false;
-            btn_sair.Image = Properties.Resources.excluir;
-            btn_sair.ImageScaling = ToolStripItemImageScaling.None;
-            btn_sair.ImageTransparentColor = Color.Magenta;
-            btn_sair.Name = "btn_sair";
-            btn_sair.Size = new Size(98, 55);
-            btn_sair.Text = "Sair";
-            btn_sair.TextImageRelation = TextImageRelation.ImageAboveText;
-            btn_sair.Click += btn_sair_Click;
             // 
             // pb_imagem
             // 
@@ -177,7 +166,6 @@
         private ToolStrip toolStrip2;
         private ToolStripButton btn_entrar;
         private ToolStripSeparator toolStripSeparator3;
-        private ToolStripButton btn_sair;
         private PictureBox pb_imagem;
     }
 }
